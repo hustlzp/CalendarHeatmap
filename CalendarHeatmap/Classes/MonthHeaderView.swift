@@ -16,7 +16,7 @@ class MonthHeaderView: UIStackView {
         self.config = config
         super.init(frame: .zero)
         
-        alignment = .center
+        alignment = config.monthAlignment
         axis = .horizontal
         distribution = .fillProportionally
         spacing = 0

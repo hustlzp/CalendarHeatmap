@@ -15,6 +15,7 @@ public enum WeekDayStandard {
 
 public struct CalendarHeatmapConfig {
     public var backgroundColor: UIColor = .white
+    public var contentLeftInset: CGFloat = 0
     public var contentRightInset: CGFloat = 60
     
     // calendar day item
@@ -27,6 +28,7 @@ public struct CalendarHeatmapConfig {
     public var lineSpacing: CGFloat = 4
     
     // calendar weekday
+    public var showWeekDay: Bool = true
     public var weekDayColor: UIColor = .black
     public var weekDayStrings: [String] = DateFormatter().shortWeekdaySymbols.map{ $0.capitalized }
     public var weekDayFont: UIFont = UIFont.systemFont(ofSize: 12, weight: .medium)
@@ -38,6 +40,7 @@ public struct CalendarHeatmapConfig {
     public var monthStrings: [String] = DateFormatter().monthSymbols
     public var monthFont: UIFont = UIFont.systemFont(ofSize: 12, weight: .medium)
     public var monthHeight: CGFloat = 20
+    public var monthAlignment: UIStackView.Alignment = .center
     
     public init(){}
 }

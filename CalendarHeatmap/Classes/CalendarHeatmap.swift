@@ -22,7 +22,7 @@ open class CalendarHeatmap: UIView {
         cv.delegate = self
         cv.dataSource = self
         cv.register(CalendarHeatmapCell.self, forCellWithReuseIdentifier: cellId)
-        cv.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: config.contentRightInset)
+        cv.contentInset = UIEdgeInsets(top: 0, left: config.contentLeftInset, bottom: 0, right: config.contentRightInset)
         cv.showsHorizontalScrollIndicator = false
         cv.showsVerticalScrollIndicator = false
         cv.layer.masksToBounds = false
@@ -105,26 +105,42 @@ open class CalendarHeatmap: UIView {
         clipsToBounds = true
         
         addSubview(collectionView)
-        addSubview(weekDayView)
+        if config.showWeekDay {
+            addSubview(weekDayView)
+        }
         collectionView.addSubview(monthHeaderView)
         collectionView.bringSubviewToFront(monthHeaderView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        weekDayView.translatesAutoresizingMaskIntoConstraints = false
+        if config.showWeekDay {
+            weekDayView.translatesAutoresizingMaskIntoConstraints = false
+        }
         monthHeaderView.translatesAutoresizingMaskIntoConstraints = false
-        
+
+        if config.showWeekDay {
+            NSLayoutConstraint.activate([
+                weekDayView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                weekDayView.topAnchor.constraint(equalTo: self.topAnchor),
+                weekDayView.widthAnchor.constraint(equalToConstant: config.weekDayWidth)
+            ])
+        }
         NSLayoutConstraint.activate([
-            weekDayView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            weekDayView.topAnchor.constraint(equalTo: self.topAnchor),
-            weekDayView.widthAnchor.constraint(equalToConstant: config.weekDayWidth),
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: config.itemSide * 7 + config.interitemSpacing * 6 + config.monthHeight),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: weekDayView.trailingAnchor),
             monthHeaderView.topAnchor.constraint(equalTo: collectionView.topAnchor),
             monthHeaderView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
             monthHeaderView.heightAnchor.constraint(equalToConstant: config.monthHeight)
         ])
+        if config.showWeekDay {
+            NSLayoutConstraint.activate([
+                collectionView.leadingAnchor.constraint(equalTo: weekDayView.trailingAnchor),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            ])
+        }
         let bottomConstraint = collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         bottomConstraint.priority = .defaultLow
         bottomConstraint.isActive = true

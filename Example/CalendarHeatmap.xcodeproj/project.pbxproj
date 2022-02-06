@@ -220,10 +220,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = KR32QFSV8Z;
 						LastSwiftMigration = 1130;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = KR32QFSV8Z;
 						LastSwiftMigration = 1130;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -483,6 +485,7 @@
 			baseConfigurationReference = 9C664D3392371522B6C065E8 /* Pods-CalendarHeatmap_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KR32QFSV8Z;
 				INFOPLIST_FILE = CalendarHeatmap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -499,6 +502,7 @@
 			baseConfigurationReference = E958E1C7C7DC72924F27694B /* Pods-CalendarHeatmap_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KR32QFSV8Z;
 				INFOPLIST_FILE = CalendarHeatmap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -514,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 965B670F0F8F059986510DE8 /* Pods-CalendarHeatmap_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = KR32QFSV8Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -536,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84FEAF076C5C91268FD2D1D9 /* Pods-CalendarHeatmap_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = KR32QFSV8Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
